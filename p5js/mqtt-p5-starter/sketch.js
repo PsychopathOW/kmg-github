@@ -18,7 +18,7 @@ function setup() {
   })
   
   //subscribe poå emnet programmering
-  client.subscribe('programmering')
+  client.subscribe('cDist')
   
   //når vi modtager beskeder fra MQTT serveren kaldes denne funktion
   client.on('message', (topic, message) => {

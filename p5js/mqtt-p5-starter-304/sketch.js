@@ -7,11 +7,12 @@ function setup() {
 
   mqttInit()
 
-  client.subscribe('#')
+  client.subscribe('bDist')
 
   client.on('message', async (topic, message) => {
     console.log('Received Message: ' + message.toString() + '\nOn topic: ' + topic)
-    connectionDiv.html('Received message: ' + message )
+    document.getElementById("bDist").innerHTML = message + ' mm'
+    connectionDiv.html(message + ' mm')
     if (topic.startsWith('escaperoom/')) {
       let group = topic.split('/')[1]
 
@@ -25,6 +26,8 @@ function setup() {
       }
     }
   })
+
+  document.getElementById("savedDist").innerHTML = '5 mm'
 }
 
 
